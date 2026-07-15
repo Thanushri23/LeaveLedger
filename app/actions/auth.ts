@@ -19,7 +19,6 @@ export async function signupAction(
     email: formData.get('email'),
     password: formData.get('password'),
     role: formData.get('role'),
-    department: formData.get('department'),
   }
 
   const parsed = signupSchema.safeParse(raw)
@@ -27,7 +26,8 @@ export async function signupAction(
     return { errors: parsed.error.flatten().fieldErrors }
   }
 
-  const { full_name, email, password, role, department } = parsed.data
+  const { full_name, email, password, role } = parsed.data
+  const department = 'Engineering'
   const supabase = await createClient()
 
   // signUp passes metadata to the handle_new_user trigger, which atomically:

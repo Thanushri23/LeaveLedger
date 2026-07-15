@@ -4,18 +4,6 @@ import { useActionState } from 'react'
 import Link from 'next/link'
 import { signupAction } from '@/app/actions/auth'
 
-const DEPARTMENTS = [
-  'Engineering',
-  'Product',
-  'Design',
-  'Marketing',
-  'Sales',
-  'HR',
-  'Finance',
-  'Operations',
-  'Customer Support',
-  'Legal',
-]
 
 export default function SignupPage() {
   const [state, action, pending] = useActionState(signupAction, undefined)
@@ -108,48 +96,21 @@ export default function SignupPage() {
           )}
         </div>
 
-        {/* Role + Department row */}
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label htmlFor="role" className="label">
-              Role
-            </label>
-            <select id="role" name="role" className="input" defaultValue="" required>
-              <option value="" disabled>
-                Select…
-              </option>
-              <option value="employee">Employee</option>
-              <option value="manager">Manager</option>
-            </select>
-            {state?.errors?.role && (
-              <p className="error-text">{state.errors.role[0]}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="department" className="label">
-              Department
-            </label>
-            <select
-              id="department"
-              name="department"
-              className="input"
-              defaultValue=""
-              required
-            >
-              <option value="" disabled>
-                Select…
-              </option>
-              {DEPARTMENTS.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-            {state?.errors?.department && (
-              <p className="error-text">{state.errors.department[0]}</p>
-            )}
-          </div>
+        {/* Role */}
+        <div>
+          <label htmlFor="role" className="label">
+            Role
+          </label>
+          <select id="role" name="role" className="input" defaultValue="" required>
+            <option value="" disabled>
+              Select…
+            </option>
+            <option value="employee">Employee</option>
+            <option value="manager">Manager</option>
+          </select>
+          {state?.errors?.role && (
+            <p className="error-text">{state.errors.role[0]}</p>
+          )}
         </div>
 
         {/* Submit */}

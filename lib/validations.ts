@@ -9,7 +9,6 @@ export const signupSchema = z.object({
     .regex(/[a-zA-Z]/, 'Password must contain at least one letter')
     .regex(/[0-9]/, 'Password must contain at least one number'),
   role: z.enum(['employee', 'manager'], { error: 'Please select a role' }),
-  department: z.string().min(1, 'Please enter your department').trim(),
 })
 
 export const loginSchema = z.object({
