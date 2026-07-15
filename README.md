@@ -3,7 +3,7 @@
 > A full-stack leave management platform for teams — employees request leave, managers approve it, and everyone stays in sync.
 
 
-**Live demo → [your-vercel-link.vercel.app]**
+**Live demo → (https://leave-ledger-qwfvlti26-thanushris-projects-c26840ac.vercel.app/login)**
 
 | Demo Account |       Email       | Password |
 |--------------|-------------------|----------|
